@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pièces Montées</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'index/img/favicon.ico' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'index/base.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'index/reset.css' %}" >
+	<script>let FF_FOUC_FIX;</script>
+</head>
+<body>
+<header><img class="logo" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
+<!--<div class="haut"> </div>		-->
+
+</header>
+<main>
+	<span id="myModal" class="modal">
+
+	<span class="modal-content">
+		<span class="close">&times;</span>
+		<span id="alerte">
+		{% for alerte in alertes %}{{alerte.contenu|safe}}{% endfor %}
+		</span>
+	</span>
+
+</span>
+
+<nav>
+	<div class="horaire">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
+	<ul class="navigation">
+	{% for paragraphe in paragraphes %}
+	<li><a class="titres" href="#{{ paragraphe.titre }}">{{ paragraphe.titre }}&nbsp;     </a></li>
+    {% endfor %}
+ </ul>
+</nav>
+
+<div class="paragraphes">
+	
+    {% for paragraphe in paragraphes %}
+    <div class="paragraphe {{ paragraphe.position}} {{ paragraphe.ligne}} {{ paragraphe.largeur}} " id="{{ paragraphe.titre }}">
+       <div class="contenu {{ paragraphe.fond}}" >{{ paragraphe.contenu|safe }}</div></div>
+    {% endfor %}
+</div>
+</main>
+
+<footer>
+{% for contact in contacts %}{{contact.contenu|safe}}
+{% endfor %}
+</footer>
+
+</body>
+<!--
+
+		modal.style.display= "none";
+		btn.style.display= "none";
+	}else{
+		modal.style.display= "block";
+		btn.style.display= "block";
+		
+	};
+
+-->
+
+
+	
+</html>
+<script src="{%static 'index/js/script.js' %}"> </script>
