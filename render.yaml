@@ -1,7 +1,7 @@
 databases:
   - name: datata
     plan: free
-    databaseName: pm-data
+    databaseName: pmdata
     user: pm
 
 services:
