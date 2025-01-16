@@ -88,16 +88,16 @@ WSGI_APPLICATION = 'pm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-#DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#   }
-#}
-
 DATABASES = {
-   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+#DATABASES = {
+#   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#}
 
 
 
@@ -203,13 +203,3 @@ SUMMERNOTE_CONFIG = {
 
 }
 
-
-if not User.objects.filter(is_superuser=True).first():
-    user = User.objects.create(
-        username = 'dev',
-        email = 'admin@mywebsite.com',
-        is_superuser = True,
-        ...
-    )
-    user.set_password('123456789')
-    user.save()
