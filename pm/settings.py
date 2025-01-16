@@ -202,3 +202,14 @@ SUMMERNOTE_CONFIG = {
                },
 
 }
+
+
+if not User.objects.filter(is_superuser=True).first():
+    user = User.objects.create(
+        username = 'dev',
+        email = 'admin@mywebsite.com',
+        is_superuser = True,
+        ...
+    )
+    user.set_password('123456789')
+    user.save()
