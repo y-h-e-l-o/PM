@@ -1,11 +1,12 @@
 window.addEventListener("load", display);
 
 const logo = document.querySelector(".logo");
+var horaire = document.querySelector(".horaire");
+var background= document.querySelector(".vertfirst");
 var width = window.screen.width;
 var modal = document.getElementById("myModal");
 var btn = document.getElementsByClassName("close")[0];
 var couleurs = ["#f8ef88","#5cba9a","white","#f29799"];
-
 
 //------------DISPLAY-ALERT------------------------
 function display(){
@@ -20,8 +21,6 @@ let isEmpty = document.getElementById("alerte").textContent === "";
 		}};
 
 //------------CLOSE-DIALOG------------------------
-
-
 btn.onclick = function() {
   modal.style.display = "none";
   btn.style.display = "none";
@@ -34,25 +33,24 @@ window.onclick = function(event) {
 }
 };
 
-//-------------BACKGROUND_COLORS------EN--COURS--!------------
-
-function couleurs(){
-	let paragraphe = document.getElementsByClassName("paragraphe");
-for(i=1; i<100; i++){
-	paragraphe.style.backgroundColor = couleurs[i];
-}
-
-}
-
-
 //-------------SCROLLEVENT------------------------
 window.addEventListener('scroll', () => {
-	if (window.scrollY > 200){
- 	logo.style.transform= "translate(310px, -50px) scale(0.6) ";
-	logo.style.transition= "transform 0.4s";
+	if ( window.scrollY > 50){
+ 	logo.style.transform= " scale(0.3) translate(-95vw, -85vh) ";
+	logo.style.transition= "transform 0.7s";
+	background.style.bottom="-110vh";
+	background.style.transition= "bottom 0.7s";
+	horaire.style.transform= " translate(20vw, -20vh) scale(0.8) ";
+	horaire.style.transition= "transform 0.6s";
 }
  else{
- 	logo.style.transform= "scale(1) ";
+ 	logo.style.transform= "scale(1)"
+ 	logo.style.transition= "transform 0.7s";
+ 	background.style.bottom="0px";
+ 	background.style.transition= "bottom 0.7s";
+ 	horaire.style.transform= "scale(1)";
+	horaire.style.transition= "transform 0.6s";
+
  }
 });
 

@@ -11,9 +11,8 @@
 	<script>let FF_FOUC_FIX;</script>
 </head>
 <body>
-<header><img class="logo" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
-<!--<div class="haut"> </div>		-->
-
+<header>
+<div class="vertfirst">a </div>
 </header>
 <main>
 	<span id="myModal" class="modal">
@@ -28,12 +27,16 @@
 </span>
 
 <nav>
-	<div class="horaire">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
-	<ul class="navigation">
+	<img class="logo" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
+<!--	<ul class="navigation"><li class="menu">MENU</li>
 	{% for paragraphe in paragraphes %}
 	<li><a class="titres" href="#{{ paragraphe.titre }}">{{ paragraphe.titre }}&nbsp;     </a></li>
     {% endfor %}
- </ul>
+ </ul> -->
+ <div class="menuu">{% for paragraphe in paragraphes %}
+	<button><a class="titres" href="#{{ paragraphe.titre }}">{{ paragraphe.titre }}&nbsp; </a></button>
+    {% endfor %}</div>
+ <div class="horaire">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
 </nav>
 
 <div class="paragraphes">
