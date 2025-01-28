@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-<div class="vertfirst">a </div>
+<span class="vertfirst">Vive Pièces Montées ! <span>✄</span> </span>
 </header>
 <main>
 	<span id="myModal" class="modal">
@@ -26,18 +26,27 @@
 
 </span>
 
+
+
+
+
 <nav>
-	<img class="logo" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
-<!--	<ul class="navigation"><li class="menu">MENU</li>
-	{% for paragraphe in paragraphes %}
-	<li><a class="titres" href="#{{ paragraphe.titre }}">{{ paragraphe.titre }}&nbsp;     </a></li>
-    {% endfor %}
- </ul> -->
- <div class="menuu">{% for paragraphe in paragraphes %}
+ <div class="menu">{% for paragraphe in paragraphes %}
 	<button><a class="titres" href="#{{ paragraphe.titre }}">{{ paragraphe.titre }}&nbsp; </a></button>
-    {% endfor %}</div>
- <div class="horaire">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
+{% endfor %}</div>
 </nav>
+
+
+ <img class="logo" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
+ 
+  <img class="logo-responsive" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
+
+ <div class="horaire">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
+
+ <div class="horaire-responsive">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
+
+
+
 
 <div class="paragraphes">
 	
@@ -54,19 +63,5 @@
 </footer>
 
 </body>
-<!--
-
-		modal.style.display= "none";
-		btn.style.display= "none";
-	}else{
-		modal.style.display= "block";
-		btn.style.display= "block";
-		
-	};
-
--->
-
-
-	
 </html>
 <script src="{%static 'index/js/script.js' %}"> </script>

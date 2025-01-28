@@ -35,21 +35,27 @@ window.onclick = function(event) {
 
 //-------------SCROLLEVENT------------------------
 window.addEventListener('scroll', () => {
-	if ( window.scrollY > 50){
- 	logo.style.transform= " scale(0.3) translate(-95vw, -85vh) ";
-	logo.style.transition= "transform 0.7s";
-	background.style.bottom="-110vh";
-	background.style.transition= "bottom 0.7s";
+	if ( window.scrollY > 100){
+ 	logo.style.transform= " scale(0.6) translate(-40vw, -35vh) ";
+	logo.style.transition= "transform 0.8s";
+	logo.style.zIndex="3"
+	background.style.opacity="0";
+	background.style.transition= "opacity 0.6s";
+	background.style.zIndex="-1"
 	horaire.style.transform= " translate(20vw, -20vh) scale(0.8) ";
 	horaire.style.transition= "transform 0.6s";
+	horaire.style.zIndex="3"
 }
  else{
  	logo.style.transform= "scale(1)"
- 	logo.style.transition= "transform 0.7s";
- 	background.style.bottom="0px";
- 	background.style.transition= "bottom 0.7s";
+ 	logo.style.transition= "transform 0.8s";
+ 	logo.style.zIndex="20"
+ 	background.style.opacity="1";
+ 	background.style.transition= "opacity 0.6s";
+ 	background.style.zIndex="8"
  	horaire.style.transform= "scale(1)";
 	horaire.style.transition= "transform 0.6s";
+	horaire.style.zIndex="20"
 
  }
 });
