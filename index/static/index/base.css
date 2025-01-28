@@ -308,6 +308,7 @@ line-height: var(--title-line-height);
   .vertfirst{
 z-index: 7;
 top: 0px;
+height: 150vh;
   }
   .vertfirst> span{
     color: var(--color-vert-canard);
