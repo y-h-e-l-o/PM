@@ -307,6 +307,7 @@ line-height: var(--title-line-height);
 @media (max-width:900px)  {
   .vertfirst{
 z-index: 7;
+top: 0px;
   }
   .vertfirst> span{
     color: var(--color-vert-canard);
@@ -330,19 +331,24 @@ display: none;
   z-index: 20;
   position: relative;
   margin-top: 30px;
-    z-index: 9;
+  z-index: 9;
 }
 .menu{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: auto;
   height: auto;
   flex-basis: auto;
   padding-top: 0px;
+  position: fixed;
+  left: 0px;
   z-index: 50;
-}
+  }
 .menu > button{
   border: none;
+  padding: 0px;
+  border-radius: 0;
+
 }
   .paragraphes{
   position: relative;
