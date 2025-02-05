@@ -69,10 +69,14 @@ body{
   width: max(300px, 30vw);
   height: auto;
   top: 20vh;
-  border-radius: 40px;
+  border-radius: 5px;
 }
 
-/*_________TOP + FOOTER___*/
+/*_________NAV + FOOTER___*/
+label, #toggle
+{
+    display: none;
+}
 
 nav{
   position: fixed;
@@ -85,17 +89,6 @@ nav{
   align-items: top;
 }
 
-.logo{
-  position : fixed;
-  width: 25vw;
-  top: 20vh;
-  left: 20vw;
-  height: auto;
-  z-index: 20;
-}
-  .logo-responsive{
-    display: none;
-  }
 .menu{
   padding-top: 20px;
   width: 100vw;
@@ -106,11 +99,12 @@ nav{
 .menu a{
   margin: 10px;
 }
-button, a{
-  background-color: var(--color-jaune);
-  color: var(--color-vert-canard);
+.titres{
+  background-color: var(--color-vert-canard);
+  color: var(--color-vert);
   text-decoration: none;
   font-family: "Rubik";
+  padding-left: 10px;
   font-size: 14pt;
   border-radius: 5px;
 }
@@ -118,19 +112,9 @@ a:hover{
   color: var(--color-vert);
 }
 a::before{
-content: "➜";
 padding-right: 5px;
 }
-.horaire{
-  background-color: var(--color-vert-canard);
-  position: fixed;
-  top: 20vh;
- right: 20vw;
- padding: 40px 30px 40px 30px;
-z-index: 20;
- border-radius: 10px;
-}
-.horaire-responsive{
+.non{
   display: none;
 }
 
@@ -139,7 +123,7 @@ footer {
   display:flex;
   justify-content: center;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   text-align: center;
   letter-spacing: 0.7px;
@@ -150,18 +134,46 @@ footer {
   display: none;
 }
 
-/*________________GRID CENTRALE___*/
+/*________________LOGO+ GRID CENTRALE+ HORAIRES___*/
 
+main{
+  display:flex;
+  flex-direction: row;
+}
+.logo{
+  position: sticky;
+  max-width: 20vw;
+  height: 100%;
+  top: 20vh;
+  left: 20vw;
+  z-index: 20;
+}
+  .logo-responsive{
+    display: none;
+  }
 
+  .horaire{
+  height: 50%;
+  position: sticky;
+  background-color: var(--color-vert-canard);
+  top: 20vh;
+ right: 20vw;
+ padding: 40px 30px 40px 30px;
+z-index: 20;
+ border-radius: 10px;}
+
+ .horaire-responsive{
+  display: none;
+}
 
 .paragraphes{
   position: relative;
-  width: 60%;
+ flex-basis:60%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows:  minmax(200px, auto);
   grid-auto-columns: 500px;
-  margin: 450px auto 100px auto;
+  margin: 450px auto 100px -0.5vw;
  
 }
 .paragraphe{
@@ -251,11 +263,11 @@ grid-column: 3;
   grid-row: 10;
 }
 
-img{
+/*img{
  width: 110%;
  height: auto;
  border-radius: 10px;
-}
+}*/
 
 
 /*__________LOOK FOND_________*/
@@ -310,15 +322,17 @@ z-index: 7;
 top: 0px;
 height: 150vh;
   }
-  .vertfirst> span{
-    color: var(--color-vert-canard);
-  }
+.vertfirst> span{
+  color: var(--color-vert-canard);
+}
+
 .logo{
 display: none;
 }
+
 .logo-responsive{
   display: block;
-  width: 80vw;
+  width: 70vw;
   margin: auto;
   position: relative;
   margin-top: 200px;
@@ -334,24 +348,66 @@ display: none;
   margin-top: 30px;
   z-index: 9;
 }
+nav{
+  top: 30px;
+     height: auto;
+
+     justify-content: start;
+ }
+ 
+nav .menu{
+  display: none;
+  flex-direction: column;
+  background: var(--color-vert-canard);
+  padding-top: 60px;
+       padding-bottom: 30px;
+    border-radius: 5px;
+}
+ 
+nav .menu a {
+   width: 50%;
+ }
+ 
+label {
+  width: 30px;
+  display: flex;
+  position: fixed;
+  justify-content:end;
+  align-items: start;
+  margin: 10px 3px;
+  font-size: 40px;
+  color: var(--color-rose);
+  cursor: pointer;
+
+}
+ 
+#toggle:checked + .menu {
+  display: flex;
+}
+
+
+/*
 .menu{
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 100%;
+  align-items: start;
   height: auto;
   flex-basis: auto;
-  padding-top: 0px;
+  padding-top: 30px;
   position: fixed;
   left: 0px;
   border-radius: 10px;
   z-index: 50;
   }
-.menu > button{
+.titres{
   border: none;
-  padding: 0px;
+  padding-left: 10px;
   border-radius: 0;
+  width: 50vw;
+}*/
 
-}
+
   .paragraphes{
   position: relative;
   width: 60%;

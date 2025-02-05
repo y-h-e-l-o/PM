@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-   # 'livereload',
+    'livereload',
     'django.contrib.staticfiles',
     'index.apps.IndexConfig',
     'django_summernote',
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   # 'livereload.middleware.LiveReloadScript',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'pm.urls'
@@ -87,21 +87,21 @@ WSGI_APPLICATION = 'pm.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-DATABASES = {
-   'default': dj_database_url.config(
-default= 'postgresql://pm:uFJ3V1aHzBcsujQG2b18Fe4kvtLFI353@dpg-cu2hlo1u0jms73d96ff0-a/pmdata_bxh8',
-conn_max_age= 600
-   )
-}
-
-
-
 #DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#    }
+#   'default': dj_database_url.config(
+#default= 'postgresql://pm:uFJ3V1aHzBcsujQG2b18Fe4kvtLFI353@dpg-cu2hlo1u0jms73d96ff0-a/pmdata_bxh8',
+#conn_max_age= 600
+#   )
 #}
+
+
+
+DATABASES = {
+   'default': {
+      'ENGINE': 'django.db.backends.sqlite3',
+      'NAME': BASE_DIR / 'db.sqlite3',
+   }
+}
 
 #DATABASES = {
 #   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
@@ -156,13 +156,13 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 # This production code might break development mode, so we check whether we're in DEBUG mode
-if not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#if not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+#    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
     # and renames the files with unique names for each version to support long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
@@ -173,8 +173,10 @@ if not DEBUG:    # Tell Django to copy static assets into a path called `staticf
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-#STATIC_URL = 'index/static/index/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'index/static/index')
+STATIC_URL = 'index/static/index/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'index/static/index')
+
+
 #STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, 'index/static/index'),
 #]
@@ -183,7 +185,7 @@ if not DEBUG:    # Tell Django to copy static assets into a path called `staticf
     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
     # and renames the files with unique names for each version to support long-term caching
   #  STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -197,8 +199,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SUMMERNOTE_CONFIG = {
 
     'summernote': {
-       
-
         # Toolbar customization
         # https://summernote.org/deep-dive/#custom-toolbar-popover
         #'attachment_upload_to': summernote_custom_upload_to(),
@@ -214,11 +214,11 @@ SUMMERNOTE_CONFIG = {
             ['#f8ef88','#5cba9a','#f29799','#0d4048'], 
             ['white','black'] ,
         ],
-        'fontSizes' : ['16','26','48' , '64'],
-        'lineHeights' : ['1.2'],
+        'fontSizes' : ['12','16','18','26','36','48','60'],
+        'lineHeights' : ['0.7','1.2','2'],
        # 'style': ['Ombre Verte', 'Ombre jaune', 'Ombre rose', 'Ombre vert-canard'],
         'styleTags': [{ 'title': 'Ombre jaune','tag':'span', 'className': 'ombreJaune', 'value':'span'},
-                { 'title': 'Ombre vertesss','tag':'span', 'className': 'ombreVerte', 'value':'span'},
+                { 'title': 'Ombre verte','tag':'span', 'className': 'ombreVerte', 'value':'span'},
                 { 'title': 'Ombre rose','tag':'span', 'className': 'ombreRose', 'value':'span'},
                 { 'title': 'Ombre vert-canard','tag':'span', 'className': 'ombreVertCanard', 'value':'span'}],
                },

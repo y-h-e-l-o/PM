@@ -11,8 +11,13 @@ class Alerte(models.Model):
 class Paragraphe(models.Model):
 
 	titre = models.CharField(max_length=200)
+	MENU = [
+		('oui','oui'),
+		('non','non')
+	]
+	titre_affiché_dans_le_menu = models.CharField(max_length=4,choices=MENU,default='Oui')
 	contenu = models.TextField()
-	ordre = models.DecimalField(default=0,max_digits=1, decimal_places=0)
+	ordre_dans_l_admin = models.DecimalField(default=0,max_digits=1, decimal_places=0)
 
 	POSITIONS = [
 		('Gauche', 'Gauche'),
@@ -44,15 +49,17 @@ class Paragraphe(models.Model):
 		('Large','Large'),
 		('Xlarge','Extra Large')
 	]
+
+
 	position = models.CharField(max_length=6,choices=POSITIONS,default='Gauche')
-	ligne = models.CharField(max_length=6,choices=LIGNES,default='Une')
+	ordre_d_affichage = models.CharField(max_length=6,choices=LIGNES,default='Une')
 	largeur = models.CharField(max_length=11,choices=TAILLES,default='Classique')
 	fond = models.CharField(max_length=11,choices=COULEURS,default='Blanc')
 
 	def __str__(self): 
 		return self.titre
 	class Meta : 
-		ordering = ["ordre"]
+		ordering = ["ordre_dans_l_admin"]
 
 class Horaire(models.Model):
 	name= "Horaire"

@@ -12,9 +12,11 @@
 </head>
 <body>
 <header>
-<span class="vertfirst">Vive Pièces Montées ! <span>✄</span> </span>
+<span class="vertfirst">Vive Pièces Montées ! </span>
 </header>
-<main>
+
+
+
 	<span id="myModal" class="modal">
 
 	<span class="modal-content">
@@ -27,24 +29,18 @@
 </span>
 
 
-
-
-
 <nav>
+	 <label for="toggle">☰</label>
+    <input type="checkbox" id="toggle">
  <div class="menu">{% for paragraphe in paragraphes %}
-	<button><a class="titres" href="#{{ paragraphe.titre }}">{{ paragraphe.titre }}&nbsp; </a></button>
+	<span><a class="titres {{paragraphe.titre_affiché_dans_le_menu}}" href="#{{ paragraphe.titre }}">{{ paragraphe.titre }}&nbsp; </a></span>
 {% endfor %}</div>
 </nav>
 
-
+<main>
  <img class="logo" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
  
   <img class="logo-responsive" src="{% static 'index/img/Logo_full.png'%}" alt="Le logo de l'association Pièces Montées" >
-
- <div class="horaire">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
-
- <div class="horaire-responsive">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
-
 
 
 
@@ -55,6 +51,12 @@
        <div class="contenu {{ paragraphe.fond}}" >{{ paragraphe.contenu|safe }}</div></div>
     {% endfor %}
 </div>
+
+
+ <div class="horaire">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
+
+ <div class="horaire-responsive">{% for horaire in horaires %}{{horaire.contenu|safe}}{% endfor %}</div>
+
 </main>
 
 <footer>

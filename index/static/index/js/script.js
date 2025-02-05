@@ -36,7 +36,7 @@ window.onclick = function(event) {
 //-------------SCROLLEVENT------------------------
 window.addEventListener('scroll', () => {
 	if ( window.scrollY > 100){
- 	logo.style.transform= " scale(0.6) translate(-40vw, -35vh) ";
+ 	logo.style.transform= " scale(0.7) translate(-30vw, -29vh) ";
 	logo.style.transition= "transform 0.8s";
 	logo.style.zIndex="3"
 	background.style.opacity="0";
