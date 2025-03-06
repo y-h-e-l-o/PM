@@ -4,7 +4,6 @@ Brotli==1.1.0
 click==8.1.8
 dj-database-url==2.3.0
 Django==5.1.4
-django-livereload-server==0.5.1
 django-summernote==0.8.20.0
 gunicorn==23.0.0
 h11==0.14.0
